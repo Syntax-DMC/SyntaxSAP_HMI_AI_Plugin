@@ -1,0 +1,11 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "sap.dm.dme.podfoundation.component.production",
+        "type": "library",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "POD Foundation Mock"
+    }
+}

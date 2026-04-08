@@ -1,0 +1,1087 @@
+/* SAP AI Chat Styles – Joule Purple Theme
+   Version: 0.9.0 – Ported from aichatbot_plugin with synCopilot prefix
+*/
+
+/* ============================== */
+/* Root Container                 */
+/* ============================== */
+.synCopilotRoot {
+    background: #ffffff;
+    overflow: hidden;
+    font-family: "72", "72full", Arial, Helvetica, sans-serif;
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    flex: 1 !important;
+}
+
+/* Fix: allow ScrollContainer's flex wrapper to shrink below content size */
+.synCopilotRoot > .sapMFlexItem:nth-child(3) {
+    min-height: 0 !important;
+}
+
+/* Chat Container – use relative positioning for absolute input */
+.synCopilotChatContainer {
+    flex: 1 1 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* ============================== */
+/* Purple Welcome Section         */
+/* ============================== */
+.synCopilotWelcomeSection {
+    background: linear-gradient(180deg, #6366F1 0%, #7C3AED 50%, #A855F7 100%);
+    flex: 1 1 auto !important;
+    padding-bottom: 24px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+}
+
+/* Header Bar (persistent – always visible) */
+.synCopilotHeader {
+    background: #6366F1;
+    padding: 10px 12px;
+    flex-shrink: 0;
+}
+
+/* When chat is active, hide welcome and show normal header */
+.synCopilotChatActive .synCopilotHeader {
+    background: linear-gradient(135deg, #5B4FD6, #7C5FE8);
+}
+
+/* When chat is active, collapse welcome section */
+.synCopilotChatActive .synCopilotWelcomeSection {
+    display: none !important;
+}
+
+/* When chat is active, hide suggestion chips */
+.synCopilotChatActive .synCopilotSuggestions {
+    display: none !important;
+}
+
+.synCopilotMenuBtn,
+.synCopilotMenuBtn.sapMBtn {
+    margin-right: 4px !important;
+    min-width: 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.synCopilotMenuBtn .sapMBtnInner,
+.synCopilotMenuBtn .sapMBtnTransparent {
+    background: transparent !important;
+    border: none !important;
+}
+
+.synCopilotMenuBtn .sapMBtnInner .sapUiIcon,
+.synCopilotMenuBtn .sapMBtnIcon {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.1rem !important;
+}
+
+.synCopilotHeaderTitle {
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+}
+
+/* Sparkle / Diamond Area – Joule SVG Style */
+.synCopilotSparkleArea {
+    padding: 40px 0 25px 0;
+}
+
+/* Joule Icon Container */
+.synCopilotJouleIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+}
+
+.synCopilotJouleIcon svg {
+    width: 120px;
+    height: 120px;
+    overflow: visible;
+}
+
+/* Greeting */
+.synCopilotGreeting {
+    padding: 0 24px;
+}
+
+.synCopilotGreetingName {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.15rem !important;
+    font-weight: 400 !important;
+    margin-bottom: 2px !important;
+}
+
+.synCopilotGreetingQuestion {
+    color: #ffffff !important;
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+}
+
+/* Hint Card */
+.synCopilotHintCardWrapper {
+    padding: 16px 24px 0 24px;
+}
+
+.synCopilotHintCard {
+    background: rgba(255, 255, 240, 0.9);
+    border-radius: 16px;
+    padding: 14px 18px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #333333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ============================== */
+/* Content / Messages Area        */
+/* ============================== */
+.synCopilotContentScroll {
+    background: #ffffff;
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+}
+
+/* Force UI5 ScrollContainer to respect flex constraints */
+.synCopilotContentScroll.sapMScrollCont {
+    height: auto !important;
+    max-height: 100% !important;
+}
+
+.synCopilotContentScroll > .sapMScrollContScroll {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+.synCopilotContentArea {
+    padding: 12px 16px 90px 16px;
+}
+
+/* Suggestion Chips - horizontal scrollable row */
+.synCopilotSuggestions {
+    margin-bottom: 8px;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 8px;
+    padding: 4px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.synCopilotSuggestions::-webkit-scrollbar {
+    display: none;
+}
+
+.synCopilotChip {
+    display: inline-block;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    color: #5B4FD6;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.synCopilotChip:hover {
+    background: #f0ecff;
+    border-color: #5B4FD6;
+}
+
+/* Chat Messages */
+.synCopilotMessages {
+    padding-top: 4px;
+}
+
+.synCopilotMessageRow {
+    margin-bottom: 8px;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.synCopilotMessageBubble {
+    max-width: 88%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    overflow: hidden !important;
+    min-width: 0 !important;
+}
+
+.synCopilotMessageUser {
+    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    border-bottom-right-radius: 6px;
+}
+
+.synCopilotMessageUser .synCopilotMessageText {
+    color: #ffffff !important;
+}
+
+.synCopilotMessageBot {
+    background: #f8f8f8;
+    border: 1px solid #eeeeee;
+    border-bottom-left-radius: 6px;
+}
+
+.synCopilotMessageBot .synCopilotMessageText {
+    color: #333333 !important;
+}
+
+.synCopilotMessageText {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    font-weight: 400 !important;
+}
+
+/* ============================== */
+/* Input Section                  */
+/* ============================== */
+.synCopilotInputSection {
+    padding: 10px 16px 8px 16px;
+    background: #ffffff !important;
+    border-top: 1px solid #f0f0f0;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 100 !important;
+}
+
+.synCopilotInputRow,
+.synCopilotInputRow.sapMHBox {
+    border: 2px solid #5B4FD6;
+    border-radius: 28px;
+    padding: 4px 4px 4px 16px;
+    background: #ffffff;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Force UI5 HBox flex item wrappers to size correctly */
+.synCopilotInputRow > div:first-child,
+.synCopilotInputRow > .sapMFlexItem:first-child {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    width: 0 !important;
+    -webkit-flex: 1 1 0% !important;
+}
+
+.synCopilotInputRow > div:last-child,
+.synCopilotInputRow > .sapMFlexItem:last-child {
+    flex: 0 0 38px !important;
+    min-width: 38px !important;
+    max-width: 38px !important;
+    width: 38px !important;
+    -webkit-flex: 0 0 38px !important;
+}
+
+.synCopilotInput,
+.synCopilotInput.sapMInputBase {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    border: none !important;
+}
+
+/* Nuclear reset: kill ALL borders/outlines inside INPUT only (not button) */
+.synCopilotInputRow .synCopilotInput,
+.synCopilotInputRow .synCopilotInput *,
+.synCopilotInputRow .synCopilotInput *:focus,
+.synCopilotInputRow .synCopilotInput *:active {
+    border: none !important;
+    border-width: 0 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.synCopilotInputRow .synCopilotInput *::before,
+.synCopilotInputRow .synCopilotInput *::after {
+    border: none !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    display: none !important;
+}
+
+.synCopilotInput .sapMInputBaseInner {
+    background: transparent !important;
+    font-size: 0.9rem !important;
+    padding: 0 !important;
+    height: 34px !important;
+}
+
+.synCopilotInput .sapMInputBaseContentWrapper {
+    background: transparent !important;
+}
+
+/* Send Button – constrain outer sapMBtn wrapper + inner */
+.synCopilotSendBtn,
+.synCopilotSendBtn.sapMBtn,
+button.synCopilotSendBtn,
+.synCopilotInputRow .synCopilotSendBtn {
+    border-radius: 50% !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex: 0 0 34px !important;
+    overflow: hidden !important;
+}
+
+.synCopilotSendBtn .sapMBtnInner,
+.synCopilotSendBtn .sapMBtnDefault,
+.synCopilotSendBtn .sapMBtnTransparent,
+.synCopilotSendBtn > .sapMBtnInner {
+    background-color: #5B4FD6 !important;
+    background: #5B4FD6 !important;
+    border-radius: 50% !important;
+    border: none !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.synCopilotSendBtn .sapMBtnInner .sapUiIcon,
+.synCopilotSendBtn .sapMBtnIcon {
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+}
+
+.synCopilotSendBtn .sapMBtnInner:hover {
+    background-color: #4A3FC5 !important;
+    background: #4A3FC5 !important;
+}
+
+/* Disclaimer */
+.synCopilotDisclaimer {
+    text-align: center !important;
+    font-size: 0.75rem !important;
+    color: #888888 !important;
+    padding-top: 8px !important;
+    padding-bottom: 4px !important;
+}
+
+/* ============================== */
+/* Typing Indicator               */
+/* ============================== */
+.synCopilotTypingText {
+    font-style: italic !important;
+    color: #888888 !important;
+}
+
+@keyframes synCopilotPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.synCopilotTypingRow .synCopilotMessageBubble {
+    animation: synCopilotPulse 1.5s ease-in-out infinite;
+}
+
+/* Typing spinner */
+.synCopilotSpinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #e0e0e0;
+    border-top-color: #5B4FD6;
+    border-radius: 50%;
+    animation: synCopilotSpin 0.8s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes synCopilotSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Typing bubble */
+.synCopilotTypingBubble {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+/* ============================== */
+/* Markdown Rendered Content      */
+/* ============================== */
+
+/* HTML content container */
+.synCopilotHtmlContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: #333333 !important;
+    overflow: hidden !important;
+    min-width: 0 !important;
+    font-weight: 400 !important;
+}
+
+/* Headers */
+.synCopilotMdH1 {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #333333 !important;
+    margin: 12px 0 8px 0 !important;
+    padding-bottom: 4px !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.synCopilotMdH2 {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    color: #333333 !important;
+    margin: 10px 0 6px 0 !important;
+}
+
+.synCopilotMdH3 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #5B4FD6 !important;
+    margin: 8px 0 4px 0 !important;
+}
+
+/* Table Wrapper for Horizontal Scroll */
+.synCopilotMdTableWrapper {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 8px 0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Scrollbar styling for table wrapper */
+.synCopilotMdTableWrapper::-webkit-scrollbar {
+    height: 6px !important;
+}
+
+.synCopilotMdTableWrapper::-webkit-scrollbar-track {
+    background: #f0f0f0 !important;
+    border-radius: 3px !important;
+}
+
+.synCopilotMdTableWrapper::-webkit-scrollbar-thumb {
+    background: #c0c0c0 !important;
+    border-radius: 3px !important;
+}
+
+.synCopilotMdTableWrapper::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0 !important;
+}
+
+/* Tables */
+.synCopilotMdTable {
+    min-width: 500px !important;
+    width: max-content !important;
+    border-collapse: collapse !important;
+    font-size: 0.8125rem !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+.synCopilotMdTable thead {
+    background: linear-gradient(135deg, #5B4FD6, #7C5FE8) !important;
+}
+
+.synCopilotMdTable thead th {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    padding: 8px 12px !important;
+    text-align: left !important;
+    border: none !important;
+    white-space: nowrap !important;
+}
+
+.synCopilotMdTable tbody tr {
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.synCopilotMdTable tbody tr:last-child {
+    border-bottom: none !important;
+}
+
+.synCopilotMdTable tbody tr:nth-child(even) {
+    background: #fafafa !important;
+}
+
+.synCopilotMdTable tbody tr:hover {
+    background: #f5f0ff !important;
+}
+
+.synCopilotMdTable tbody td {
+    padding: 7px 12px !important;
+    color: #333333 !important;
+    border: none !important;
+    white-space: nowrap !important;
+}
+
+/* Horizontal Rule */
+.synCopilotMdHr {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, #d0d0d0, transparent) !important;
+    margin: 12px 0 !important;
+}
+
+/* Inline Code */
+.synCopilotMdCode {
+    background: #f4f0ff !important;
+    color: #5B4FD6 !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-family: "SF Mono", Monaco, "Courier New", monospace !important;
+    font-size: 0.8125rem !important;
+}
+
+/* Strong/Bold */
+.synCopilotMessageBot strong {
+    color: #333333 !important;
+    font-weight: 600 !important;
+}
+
+/* Emphasis/Italic */
+.synCopilotMessageBot em {
+    font-style: italic !important;
+}
+
+/* Bot message bubble adjustments for formatted content */
+.synCopilotMessageBot.synCopilotMessageBubble {
+    max-width: 95% !important;
+    padding: 12px 16px !important;
+    overflow: hidden !important;
+    min-width: 0 !important;
+}
+
+/* Fix for UI5 HBox flex items containing tables */
+.synCopilotMessageRow > .sapMFlexItem,
+.synCopilotMessageBubble > .sapMFlexItem {
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+/* ============================== */
+/* Sidebar Panel (Joule-style)    */
+/* ============================== */
+
+/* Main container needs relative positioning for absolute sidebar */
+#mainContainer,
+.synCopilotMainContainer {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+.synCopilotSidebar {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 280px !important;
+    height: 100% !important;
+    background: #ffffff !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15) !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    animation: synCopilotSlideIn 0.25s ease-out !important;
+}
+
+@keyframes synCopilotSlideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Sidebar Header */
+.synCopilotSidebarHeader {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    flex-shrink: 0 !important;
+}
+
+.synCopilotSidebarMenuBtn,
+.synCopilotSidebarMenuBtn.sapMBtn {
+    min-width: 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.synCopilotSidebarMenuBtn .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+}
+
+.synCopilotSidebarMenuBtn .sapMBtnIcon {
+    color: #333333 !important;
+    font-size: 1.1rem !important;
+}
+
+.synCopilotSidebarTitle {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #333333 !important;
+    margin-left: 4px !important;
+}
+
+.synCopilotSidebarCloseBtn,
+.synCopilotSidebarCloseBtn.sapMBtn {
+    min-width: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.synCopilotSidebarCloseBtn .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+}
+
+.synCopilotSidebarCloseBtn .sapMBtnIcon {
+    color: #666666 !important;
+    font-size: 0.9rem !important;
+}
+
+/* New Conversation Button */
+.synCopilotSidebarNewConv {
+    padding: 16px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    flex-shrink: 0 !important;
+}
+
+.synCopilotNewConvBtn,
+.synCopilotNewConvBtn.sapMBtn {
+    width: 100% !important;
+}
+
+.synCopilotNewConvBtn .sapMBtnInner {
+    background: transparent !important;
+    border: 1.5px solid #5B4FD6 !important;
+    border-radius: 8px !important;
+    padding: 10px 16px !important;
+    justify-content: flex-start !important;
+}
+
+.synCopilotNewConvBtn .sapMBtnContent {
+    color: #5B4FD6 !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+}
+
+.synCopilotNewConvBtn .sapMBtnIcon {
+    color: #5B4FD6 !important;
+    margin-right: 8px !important;
+}
+
+.synCopilotNewConvBtn .sapMBtnInner:hover {
+    background: #f4f0ff !important;
+}
+
+/* Fix New Conversation button text display */
+.synCopilotNewConvBtn .sapMBtnContent .sapMBtnText {
+    display: inline !important;
+    visibility: visible !important;
+}
+
+.synCopilotNewConvBtn .sapMBtnInner {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* History Section */
+.synCopilotSidebarHistorySection {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+.synCopilotHistoryHeader {
+    padding: 12px 16px !important;
+    flex-shrink: 0 !important;
+}
+
+.synCopilotHistoryTitle {
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    color: #666666 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.synCopilotHistoryToggleBtn,
+.synCopilotHistoryToggleBtn.sapMBtn {
+    min-width: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.synCopilotHistoryToggleBtn .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+}
+
+.synCopilotHistoryToggleBtn .sapMBtnIcon {
+    color: #666666 !important;
+    font-size: 0.75rem !important;
+}
+
+/* History Scroll Container */
+.synCopilotHistoryScroll {
+    flex: 1 !important;
+    min-height: 0 !important;
+}
+
+.synCopilotHistoryList {
+    padding: 0 8px 16px 8px !important;
+}
+
+/* History Item */
+.synCopilotHistoryItem {
+    padding: 10px 12px !important;
+    margin-bottom: 4px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.synCopilotHistoryItem:hover {
+    background: #f8f8f8 !important;
+}
+
+.synCopilotHistoryItemActive {
+    background: #f4f0ff !important;
+    border-left: 3px solid #5B4FD6 !important;
+}
+
+.synCopilotHistoryItemContent {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+.synCopilotHistoryItemTitle {
+    font-size: 0.875rem !important;
+    color: #333333 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+.synCopilotHistoryItemDate {
+    font-size: 0.6875rem !important;
+    color: #999999 !important;
+    margin-top: 2px !important;
+}
+
+.synCopilotHistoryItemDelete,
+.synCopilotHistoryItemDelete.sapMBtn {
+    min-width: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    opacity: 0 !important;
+    transition: opacity 0.15s ease !important;
+}
+
+.synCopilotHistoryItem:hover .synCopilotHistoryItemDelete {
+    opacity: 1 !important;
+}
+
+.synCopilotHistoryItemDelete .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+}
+
+.synCopilotHistoryItemDelete .sapMBtnIcon {
+    color: #cc0000 !important;
+    font-size: 0.75rem !important;
+}
+
+/* Empty History State */
+.synCopilotHistoryEmpty {
+    padding: 24px 16px !important;
+    text-align: center !important;
+}
+
+.synCopilotHistoryEmptyText {
+    font-size: 0.8125rem !important;
+    color: #999999 !important;
+}
+
+/* Sidebar Footer */
+.synCopilotSidebarFooter {
+    padding: 16px !important;
+    padding-bottom: 24px !important;
+    border-top: 1px solid #f0f0f0 !important;
+    flex-shrink: 0 !important;
+    background: #ffffff !important;
+}
+
+.synCopilotSidebarFooterBtn,
+.synCopilotSidebarFooterBtn.sapMBtn {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    min-height: 44px !important;
+}
+
+.synCopilotSidebarFooterBtn .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+    justify-content: flex-start !important;
+    padding: 10px 12px !important;
+    border-radius: 8px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.synCopilotSidebarFooterBtn .sapMBtnContent {
+    color: #333333 !important;
+    font-size: 0.875rem !important;
+}
+
+.synCopilotSidebarFooterBtn .sapMBtnContent .sapMBtnText {
+    display: inline !important;
+    visibility: visible !important;
+}
+
+.synCopilotSidebarFooterBtn .sapMBtnIcon {
+    color: #666666 !important;
+    margin-right: 10px !important;
+}
+
+.synCopilotSidebarFooterBtn .sapMBtnInner:hover {
+    background: #f8f8f8 !important;
+}
+
+/* Sidebar Overlay */
+.synCopilotSidebarOverlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    z-index: 999 !important;
+    cursor: pointer !important;
+}
+
+/* ============================== */
+/* Follow-up Question Chips       */
+/* ============================== */
+
+.synCopilotFollowupContainer {
+    padding: 4px 0 8px 0 !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+}
+
+.synCopilotFollowupChip,
+.synCopilotFollowupChip.sapMBtn {
+    margin: 0 !important;
+}
+
+.synCopilotFollowupChip .sapMBtnInner {
+    background: #ffffff !important;
+    border: 1.5px solid #5B4FD6 !important;
+    border-radius: 16px !important;
+    padding: 6px 14px !important;
+    min-height: 28px !important;
+    height: auto !important;
+}
+
+.synCopilotFollowupChip .sapMBtnContent {
+    font-size: 0.8rem !important;
+    color: #5B4FD6 !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    text-align: left !important;
+}
+
+.synCopilotFollowupChip .sapMBtnInner:hover {
+    background: #f4f0ff !important;
+    border-color: #4A3FC5 !important;
+}
+
+.synCopilotFollowupChip .sapMBtnInner:active {
+    background: #e8e0ff !important;
+}
+
+/* ============================== */
+/* Charts (synKiCopilot-specific) */
+/* ============================== */
+.synCopilotChart {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.synCopilotChartTitle {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #5B4FD6;
+    margin-bottom: 0.5rem;
+}
+
+.synCopilotChartBar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.375rem;
+}
+
+.synCopilotChartLabel {
+    width: 80px;
+    font-size: 0.6875rem;
+    color: #333333;
+    text-align: right;
+    padding-right: 0.5rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.synCopilotChartBarTrack {
+    flex: 1;
+    height: 18px;
+    background: #f0f0f0;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.synCopilotChartBarFill {
+    height: 100%;
+    border-radius: 9px;
+    min-width: 2px;
+    transition: width 0.5s ease;
+}
+
+.synCopilotChartValue {
+    width: 40px;
+    font-size: 0.6875rem;
+    color: #666;
+    padding-left: 0.375rem;
+    flex-shrink: 0;
+}
+
+/* ============================== */
+/* Debug Timing Message           */
+/* ============================== */
+.synCopilotDebugMessage {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+}
+
+.synCopilotDebugBubble {
+    background-color: rgba(50, 55, 60, 0.08);
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    padding: 0.375rem 0.625rem;
+}
+
+.synCopilotDebugText {
+    font-family: "Consolas", "Monaco", monospace !important;
+    font-size: 0.6875rem !important;
+    color: #666 !important;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+/* ============================== */
+/* Clickable Suggestions          */
+/* ============================== */
+.synCopilotSuggestion {
+    color: #5B4FD6;
+    cursor: pointer;
+    border-bottom: 1px dashed #5B4FD6;
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.synCopilotSuggestion:hover {
+    color: #7C5FE8;
+    border-bottom-color: #7C5FE8;
+}
+
+/* ============================== */
+/* Accessibility                  */
+/* ============================== */
+
+/* Focus-visible outlines for keyboard navigation */
+.synCopilotSendBtn:focus-visible,
+.synCopilotInput:focus-visible,
+.synCopilotChip:focus-visible,
+.synCopilotFollowupChip:focus-visible,
+.synCopilotSuggestion:focus-visible,
+.synCopilotHistoryItem:focus-visible,
+.synCopilotMenuBtn:focus-visible {
+    outline: 2px solid #5B4FD6 !important;
+    outline-offset: 2px;
+}
+
+/* Reduced motion: disable animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .synCopilotSidebar {
+        animation: none !important;
+    }
+    .synCopilotTypingRow .synCopilotMessageBubble {
+        animation: none !important;
+    }
+    .synCopilotChip,
+    .synCopilotFollowupChip,
+    .synCopilotSuggestion,
+    .synCopilotChartBarFill,
+    .synCopilotHistoryItem,
+    .synCopilotHistoryItemDelete {
+        transition: none !important;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "components": [
+        {
+            "id": "SapAiChat",
+            "type": "VIEW_PLUGIN",
+            "allowMultipleInstances": false,
+            "name": "syntax.max.ai.synKiCopilot",
+            "propertyEditor": "syntax.max.ai.synKiCopilot.builder.PropertyEditor",
+            "i18n": "syntax.max.ai.synKiCopilot.i18n.i18n",
+            "supportedPodTypes": ["WORK_CENTER", "OPERATION", "OTHER", "ORDER"]
+        }
+    ],
+    "extensions": []
+}

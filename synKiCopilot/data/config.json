@@ -1,0 +1,22 @@
+{
+    "LOCAL": {
+        "useProductionProcess": false,
+        "localProxyUrl": "http://localhost:5501/api/query",
+        "mockMode": false
+    },
+    "DEV": {
+        "useProductionProcess": true,
+        "productionProcessKey": "",
+        "mockMode": false
+    },
+    "QA": {
+        "useProductionProcess": true,
+        "productionProcessKey": "",
+        "mockMode": false
+    },
+    "PRD": {
+        "useProductionProcess": true,
+        "productionProcessKey": "",
+        "mockMode": false
+    }
+}

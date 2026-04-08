@@ -1,0 +1,52 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "syntax.max.ai.synKiCopilot",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}"
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "syntax.max.ai.synKiCopilot.view.SynKiCopilot",
+            "type": "XML",
+            "async": true,
+            "id": "main"
+        },
+        "dependencies": {
+            "minUI5Version": "1.84",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.dm.dme.podfoundation": {}
+            }
+        },
+        "resources": {
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "syntax.max.ai.synKiCopilot.i18n.i18n",
+                    "supportedLocales": ["de", "de-DE", "en", "fr", "es"],
+                    "fallbackLocale": "de"
+                }
+            }
+        }
+    }
+}
