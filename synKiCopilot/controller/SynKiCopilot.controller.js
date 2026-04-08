@@ -314,22 +314,32 @@ sap.ui.define([
          * Close plugin handler - closes the POD popup/dialog.
          */
         onClosePlugin: function() {
-            // Traverse up the control tree to find the enclosing Dialog/Popover and close it
+            // Find the enclosing sap.m.Dialog by walking up the DOM/control tree
             var oParent = this.getView();
             while (oParent) {
-                if (oParent.close && (oParent.isA("sap.m.Dialog") || oParent.isA("sap.m.Popover") ||
-                    oParent.isA("sap.m.ResponsivePopover") || typeof oParent.close === "function")) {
+                if (oParent.isA && oParent.isA("sap.m.Dialog")) {
                     oParent.close();
                     return;
                 }
                 oParent = oParent.getParent ? oParent.getParent() : null;
             }
-            // Last resort: try POD framework method
+            // Fallback: find dialog via DOM and close it
             try {
-                this.closePlugin();
+                var oViewDom = this.getView().getDomRef();
+                if (oViewDom) {
+                    var oDialogDom = oViewDom.closest(".sapMDialog");
+                    if (oDialogDom) {
+                        var oDialog = sap.ui.getCore().byId(oDialogDom.id);
+                        if (oDialog && oDialog.close) {
+                            oDialog.close();
+                            return;
+                        }
+                    }
+                }
             } catch (e) {
-                this.logger.warning("Could not close plugin: " + e.message);
+                this.logger.debug("DOM dialog lookup failed: " + e.message);
             }
+            this.logger.warning("Could not find dialog to close");
         },
 
         /**
